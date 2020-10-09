@@ -31,7 +31,6 @@ function LoginScreen() {
     let dimensionWidth = Dimensions.get('window').width
     let dimensionHeight = Dimensions.get('window').height
 
-
     //set new width and height if the dimension does not match with the current set width, height
     if (dimensionWidth !== width || dimensionHeight !== height) {
         setWidth(dimensionWidth)
@@ -42,12 +41,16 @@ function LoginScreen() {
   //login
   function login(callback) {
 
-    if (username!=='' && password!=='') {
+    if (username!==null && password!==null) {
+
       //call the callback when the username and pasword is filled up
       callback()
+
     } else {
-      alert('Please enter username and password.')
+      //make sure that user fills up username and password
+      alert('Please enter your email address and password.')
     }
+
   }
 
   return (
@@ -60,9 +63,10 @@ function LoginScreen() {
                 <View style={styles.container} onLayout={()=>onLayout()}>
                   <View style={styles.titleWrapper}>
                     <Text style={styles.title}>Viseo</Text>
+                    <Text style={[styles.title,{fontSize: 16}]}>Your #1 Github Fetcher</Text>
                   </View>
                   <View style={styles.inputFieldWrapper}>
-                    <TextInput style={styles.inputField} value={username} onChangeText={username => {setUsername(username)}} placeholderStyle={styles.inputFieldPlaceHolder} placeholder="Enter your username" placeholderTextColor="#778EA9" />
+                    <TextInput style={styles.inputField} value={username} onChangeText={username => {setUsername(username)}} placeholderStyle={styles.inputFieldPlaceHolder} placeholder="Enter your email address" placeholderTextColor="#778EA9" />
                   </View>
                   <View style={styles.inputFieldWrapper}>
                     <TextInput style={styles.inputField} value={password} onChangeText={password => {setPassword(password)}} placeholderStyle={styles.inputFieldPlaceHolder} placeholder="Enter your password" placeholderTextColor="#778EA9" secureTextEntry={true} />
@@ -70,6 +74,9 @@ function LoginScreen() {
                   <TouchableOpacity onPress={() => {login(setLogin)}} style={styles.buttonWrapper}>
                     <Text style={styles.buttonText}>Login</Text>
                   </TouchableOpacity>
+                  <View style={styles.footer}>
+                    <Text style={{color: 'white'}}>Kenneth John Rosales - React Native Exam</Text>
+                  </View>
                 </View>
               </TouchableWithoutFeedback>
             </KeyboardAvoidingView>
@@ -108,24 +115,38 @@ let LoginStyleSheet = StyleSheet.create({
     height: 40,
     borderRadius: 30,
     marginTop: 30,
-    backgroundColor: 'green'
+    backgroundColor: 'green',
+    shadowColor: '#00000066',
+    shadowOffset: {
+        width: 0,
+        height: 2
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 5
   },
   buttonText: {
     color: 'white',
     fontSize: 18,
+    textTransform: 'uppercase',
     paddingTop: 10,
     textAlign: 'center'
   },
   inputFieldWrapper: {
     width: 300,
     height: 30,
-    marginTop: 10,
+    marginTop: 20,
+    borderRadius: 3,
     backgroundColor: 'white'
   },
   inputField: {
     height:30,
     paddingLeft: 15,
     fontSize: 18
+  },
+  footer: {
+    position: 'absolute',
+    bottom: 10
   }
 })
 
