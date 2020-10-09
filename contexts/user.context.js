@@ -3,7 +3,9 @@ import React, {useState} from 'react'
 //user data
 let defaultValues = {
   isLoggedIn: false,
-  setLogin: () => {}
+  user: {},
+  setLogin: () => {},
+  setUser: () => {}
 }
 
 //instantiate a user context with the methods values
