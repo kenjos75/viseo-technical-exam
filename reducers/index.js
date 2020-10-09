@@ -1,4 +1,4 @@
-import { authentication } from './authentication.reducer'
+import authentication from './authentication.reducer'
 import { combineReducers } from 'redux'
 
 const rootReducer = combineReducers({

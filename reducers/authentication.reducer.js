@@ -1,4 +1,5 @@
-import { userConstants } from '../constants'
+//import our user constants
+import userConstants from '../constants/user.constants'
 
 //set initial values
 const initialState = {
@@ -6,7 +7,7 @@ const initialState = {
   isLoggedIn: false
 }
 
-export function authentication(state = initialState, action) {
+function authentication(state = initialState, action) {
 
   //uses switch case for scalable purpose
   switch (action.type) {
@@ -29,3 +30,4 @@ export function authentication(state = initialState, action) {
       return state
   }
 }
+export default authentication
