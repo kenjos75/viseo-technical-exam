@@ -17,7 +17,6 @@ import UserContext from '../contexts/user.context'
 
 function LoginScreen() {
 
-
   function onLayout() {
 
     let dimensionWidth = Dimensions.get('window').width
@@ -34,7 +33,6 @@ function LoginScreen() {
   let [width, setWidth] = useState(Dimensions.get('window').width)
   let [height, setHeight] = useState(Dimensions.get('window').height)
 
-
   return (
     <KeyboardAvoidingView style={styles.container} behavior={ Platform.Os== "ios" ? "padding" : "height" }>
       <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
@@ -48,6 +46,11 @@ function LoginScreen() {
           <View style={styles.inputFieldWrapper}>
             <TextInput style={styles.inputField} value={password} onChangeText={password => {setPassword(password)}} placeholderStyle={styles.inputFieldPlaceHolder} placeholder="Enter your password" placeholderTextColor="#778EA9" secureTextEntry={true} />
           </View>
+          <View style={styles.buttonWrapper}>
+            <TouchableOpacity>
+              <Text>Login</Text>
+            </TouchableOpacity>
+          </View>
         </View>
       </TouchableWithoutFeedback>
     </KeyboardAvoidingView>
@@ -58,33 +61,40 @@ function LoginScreen() {
 let LoginStyleSheet = StyleSheet.create({
   container: {
     flex: 1,
-    position: 'relative',
-    justifyContent: 'center',
     flexDirection: 'column',
-    backgroundColor: 'black',
-    paddingLeft: 15,
-    paddingRight: 15
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'black'
   },
   title: {
-    fontSize: 24,
+    fontSize: 60,
     color: 'white'
   },
   titleWrapper: {
-    flex: 1
+    justifyContent: 'center',
+    alignItems: 'center'
   },
   inputFieldPlaceHolder: {
      fontSize: 18,
-    color: '#778EA9'
+     color: '#778EA9'
+  },
+  buttonWrapper: {
+    width: 200,
+    height: 30,
+    borderRadius: 30,
+    marginTop: 30,
+    backgroundColor: 'pink'
   },
   inputFieldWrapper: {
-    flex: 1,
-    height: 30,
-    width: '100%',
+    width: 300,
+    height: 40,
+    marginTop: 10,
     backgroundColor: 'white'
   },
   inputField: {
     height:30,
-    width: '100%',
+    paddingLeft: 15,
+    fontSize: 18
   }
 })
 
