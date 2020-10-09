@@ -8,8 +8,14 @@ import {
   TouchableOpacity
 } from 'react-native'
 
+//import ListScreen component
 import ListScreen from '../screens/ListScreen'
 
+//immport Repo Details component
+import RepoDetailsComponent from '../screens/RepoDetailsComponent'
+
+//import search field
+import SearchField from '../components/SearchField'
 
 //create our main stack navigator
 const Stack = createStackNavigator()
@@ -27,11 +33,10 @@ function ListScreenStackCallback() {
       options={({ navigation,title }) => ({
         headerLayoutPreset: 'center',
         headerLeft: (props) => <View></View>,
-        headerTitle: (props) => <View></View>,
+        headerTitle: (props) => <SearchField />,
         headerStyle: {
           backgroundColor: '#1B232E',
-          shadowColor: 'transparent',
-          paddingBottom: 10
+          shadowColor: 'transparent'
         },
         headerTitleAlign: 'center',
         headerTitleStyle: {
@@ -46,6 +51,29 @@ function ListScreenStackCallback() {
         headerRight: (props) => <View></View>
       })}
       name='ListScreen' component={ListScreen} />
+      <ListScreenStack.Screen
+      headerMode="float"
+      options={({ navigation,title }) => ({
+        headerLayoutPreset: 'center',
+        headerLeft: (props) => <View style={{flex: 1, paddingLeft: 15,paddingTop: 10}}><TouchableOpacity onPress={() => {navigation.goBack()}}><Text style={{color: 'white'}}> Go Back</Text></TouchableOpacity></View>,
+        headerTitle: (props) => <View style={{flex: 1,paddingTop: 10}}><Text style={{color: 'white'}}>Repository Details</Text></View>,
+        headerStyle: {
+          backgroundColor: '#1B232E',
+          shadowColor: 'transparent'
+        },
+        headerTitleAlign: 'center',
+        headerTitleStyle: {
+          color: 'white',
+          fontWeight: 'bold',
+          alignSelf: 'center',
+          textAlign: 'center',
+          justifyContent: 'center',
+          flex: 1
+        },
+        headerTintColor: 'transparent',
+        headerRight: (props) => <View></View>
+      })}
+      name='RepoDetails' component={RepoDetailsComponent} />
     </ListScreenStack.Navigator>
   )
 }
