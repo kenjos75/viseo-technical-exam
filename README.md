@@ -5,7 +5,7 @@ Source code of the technical exam.
 
 ## How to Install
 
-<img src="/assets/qr-code-exam.png" width="245px" height="237px" alt="qr code">
+<img src="/assets/qr-code-exam.png" width="243px" height="219px" alt="qr code">
 
 Before installing the application, make sure that you are using android device or else it will not going to work.
 
