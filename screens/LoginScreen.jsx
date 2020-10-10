@@ -71,11 +71,13 @@ function LoginScreen() {
                   <View style={styles.inputFieldWrapper}>
                     <TextInput style={styles.inputField} value={password} onChangeText={password => {setPassword(password)}} placeholderStyle={styles.inputFieldPlaceHolder} placeholder="Enter your password" placeholderTextColor="#778EA9" secureTextEntry={true} />
                   </View>
-                  <TouchableOpacity onPress={() => {login(setLogin)}} style={styles.buttonWrapper}>
-                    <Text style={styles.buttonText}>Login</Text>
-                  </TouchableOpacity>
+                  <View style={styles.buttonWrapperContainer}>
+                    <TouchableOpacity onPress={() => {login(setLogin)}} style={styles.buttonWrapper}>
+                      <Text style={styles.buttonText}>Login</Text>
+                    </TouchableOpacity>
+                  </View>
                   <View style={styles.footer}>
-                    <Text style={{color: 'white'}}>Kenneth John Rosales - React Native Exam</Text>
+                    <Text style={styles.footerText}>Kenneth John Rosales - React Native Exam</Text>
                   </View>
                 </View>
               </TouchableWithoutFeedback>
@@ -95,7 +97,8 @@ let LoginStyleSheet = StyleSheet.create({
     flex: 1,
     flexDirection: 'column',
     justifyContent: 'center',
-    alignItems: 'center',
+    paddingLeft: 15,
+    paddingRight: 15,
     backgroundColor: 'black'
   },
   title: {
@@ -110,8 +113,12 @@ let LoginStyleSheet = StyleSheet.create({
      fontSize: 18,
      color: '#778EA9'
   },
+  buttonWrapperContainer: {
+    paddingLeft: 15,
+    paddingRight: 15
+  },
   buttonWrapper: {
-    width: 200,
+    width: '100%',
     height: 40,
     borderRadius: 30,
     marginTop: 30,
@@ -133,7 +140,7 @@ let LoginStyleSheet = StyleSheet.create({
     textAlign: 'center'
   },
   inputFieldWrapper: {
-    width: 300,
+    width: '100%',
     height: 30,
     marginTop: 20,
     borderRadius: 3,
@@ -145,8 +152,16 @@ let LoginStyleSheet = StyleSheet.create({
     fontSize: 18
   },
   footer: {
+    width: '110%',
+    paddingLeft: 15,
+    paddingRight: 15,
     position: 'absolute',
     bottom: 10
+  },
+  footerText: {
+    width: '100%',
+    color: 'white',
+    textAlign: 'center'
   }
 })
 
