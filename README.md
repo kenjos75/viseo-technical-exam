@@ -18,4 +18,5 @@ Before installing the application, make sure that you are using android device o
 1. Tap Special access.
 1. Tap Install unknown apps.
 1. Select the unknown app then tap the Allow from this source switch to turn on or off.
+1. You can also download the mobile app directly from my website [Download APK](http://www.kennethjohnrosales.com/download-apk)
 1. Enjoy :)
