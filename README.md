@@ -1,3 +1,5 @@
+<img src="/assets/v1.jpg" width="750px" height="1334px" alt="mobile app logo">
+
 # Viseo Technical Exam
 Source code of the technical exam.
 
